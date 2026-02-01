@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quay số may mắn</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quay số may mắn</h1>
+      <p class="subtitle">Nhấn BẮT ĐẦU để quay, nhấn DỪNG để dừng từng ô</p>
+
+      <div class="slots-wrapper">
+        <div class="slot" data-index="0">
+          <div class="slot-window">
+            <div class="digits" id="digit-0">
+              <span>1</span><span>2</span><span>3</span><span>4</span
+              ><span>5</span><span>6</span><span>7</span><span>8</span
+              ><span>9</span> <span>1</span><span>2</span><span>3</span
+              ><span>4</span><span>5</span><span>6</span><span>7</span
+              ><span>8</span><span>9</span>
+            </div>
+          </div>
+          <div class="slot-result" id="result-0">-</div>
+        </div>
+        <div class="slot" data-index="1">
+          <div class="slot-window">
+            <div class="digits" id="digit-1">
+              <span>1</span><span>2</span><span>3</span><span>4</span
+              ><span>5</span><span>6</span><span>7</span><span>8</span
+              ><span>9</span> <span>1</span><span>2</span><span>3</span
+              ><span>4</span><span>5</span><span>6</span><span>7</span
+              ><span>8</span><span>9</span>
+            </div>
+          </div>
+          <div class="slot-result" id="result-1">-</div>
+        </div>
+        <div class="slot" data-index="2">
+          <div class="slot-window">
+            <div class="digits" id="digit-2">
+              <span>1</span><span>2</span><span>3</span><span>4</span
+              ><span>5</span><span>6</span><span>7</span><span>8</span
+              ><span>9</span> <span>1</span><span>2</span><span>3</span
+              ><span>4</span><span>5</span><span>6</span><span>7</span
+              ><span>8</span><span>9</span>
+            </div>
+          </div>
+          <div class="slot-result" id="result-2">-</div>
+        </div>
+      </div>
+
+      <div class="result-display" id="final-result">---</div>
+
+      <div class="buttons">
+        <button type="button" class="btn btn-start" id="btn-start">
+          BẮT ĐẦU
+        </button>
+        <button type="button" class="btn btn-stop" id="btn-stop" disabled>
+          DỪNG
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
