@@ -2,18 +2,20 @@
   "use strict";
 
   const DELAY_BETWEEN_STOPS = 2000; // 2 giây giữa mỗi ô dừng
-  const DIGIT_HEIGHT = 52;
   const TOTAL_DIGITS = 9;
+
+  function getDigitHeight() {
+    var first = digitEls[0];
+    if (first && first.firstElementChild) {
+      return first.firstElementChild.getBoundingClientRect().height;
+    }
+    return 54;
+  }
 
   const digitEls = [
     document.getElementById("digit-0"),
     document.getElementById("digit-1"),
     document.getElementById("digit-2"),
-  ];
-  const resultEls = [
-    document.getElementById("result-0"),
-    document.getElementById("result-1"),
-    document.getElementById("result-2"),
   ];
   const finalResultEl = document.getElementById("final-result");
   const btnStart = document.getElementById("btn-start");
@@ -29,9 +31,9 @@
   }
 
   function getYForDigit(digit) {
-    // Mỗi số 1-9 nằm ở vị trí index (digit-1), ô hiển thị là số đầu tiên trong 9 số
-    const index = (digit - 1) % TOTAL_DIGITS;
-    return -index * DIGIT_HEIGHT;
+    var h = getDigitHeight();
+    var index = (digit - 1) % TOTAL_DIGITS;
+    return -index * h;
   }
 
   function spinSlot(index) {
@@ -48,8 +50,7 @@
 
   function stopSlot(index, callback) {
     const el = digitEls[index];
-    const resultEl = resultEls[index];
-    if (!el || !resultEl) {
+    if (!el) {
       if (callback) callback();
       return;
     }
@@ -62,7 +63,6 @@
 
     el.style.transition = "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1)";
     el.style.transform = "translateY(" + getYForDigit(finalDigit) + "px)";
-    resultEl.textContent = finalDigit;
 
     setTimeout(function () {
       updateFinalResult();
@@ -77,6 +77,11 @@
       })
       .join("");
     finalResultEl.textContent = str;
+    if (str !== "---") {
+      finalResultEl.classList.add("has-result");
+    } else {
+      finalResultEl.classList.remove("has-result");
+    }
   }
 
   function startSpinning() {
@@ -85,9 +90,6 @@
     currentStopIndex = 0;
     finalValues = [null, null, null];
     finalResultEl.textContent = "---";
-    resultEls.forEach(function (el) {
-      el.textContent = "-";
-    });
 
     btnStart.disabled = true;
     btnStop.disabled = false;

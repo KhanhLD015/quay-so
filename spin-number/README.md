@@ -39,6 +39,21 @@ Chỉ cần 3 file: `index.html`, `style.css`, `script.js`. Có thể deploy mi�
 2. **Add New** → **Project** → Import từ GitHub (đẩy code lên GitHub trước) hoặc upload thư mục.
 3. Deploy xong sẽ có link dạng `https://ten-project.vercel.app`.
 
+## Cập nhật code và đẩy lên GitHub (sau khi đã deploy)
+
+Mỗi khi sửa HTML/CSS/JS và muốn trang GitHub Pages hiển thị bản mới:
+
+1. Mở terminal trong thư mục `spin-number` (hoặc thư mục chứa repo `quay-so`).
+2. Chạy:
+   ```bash
+   git add .
+   git commit -m "Cập nhật giao diện"
+   git push
+   ```
+3. Đợi 1–2 phút, GitHub Pages sẽ tự build lại. Tải lại trang (F5 hoặc Ctrl+F5) để xem bản mới.
+
+**Lưu ý:** Nếu repo của bạn là `quay-so` và code nằm trong thư mục con `spin-number`, thì mở terminal tại **thư mục gốc repo** (chứa thư mục `spin-number`) rồi mới chạy `git add .` và `git push`.
+
 ---
 
 Sau khi deploy, gửi link cho người khác là họ có thể mở và dùng trực tiếp trên trình duyệt.
